@@ -1,8 +1,10 @@
 package main
 
 import (
+	accountmodel "clean-architecture-go-fiber/src/module/account/model"
 	accounttrpt "clean-architecture-go-fiber/src/module/account/transport"
 	database "clean-architecture-go-fiber/src/platform/database/mysql"
+
 	"fmt"
 	"log"
 
@@ -10,6 +12,7 @@ import (
 )
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 
 	// router.SetTrustedProxies([]string{"192.168.88.55"})
@@ -21,6 +24,8 @@ func main() {
 		log.Fatalln("Cannot connect to MySQL:", err)
 	}
 	fmt.Println("Opened connection to MySQL")
+
+	db.AutoMigrate(&accountmodel.Account{})
 
 	v1 := router.Group("/api/v1")
 	{
