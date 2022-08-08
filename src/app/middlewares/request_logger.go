@@ -1,10 +1,10 @@
 package middlewares
 
 import (
-	"bytes"
+	"fmt"
 	"io"
 	"log"
-	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -30,17 +30,20 @@ func (rc *MyReadCloser) Close() error {
 }
 
 func LoggingMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		log.Println(c.Request.RequestURI)
 
-		if c.Request.Method == http.MethodPost {
-			var buf bytes.Buffer
-			newBody := &MyReadCloser{c.Request.Body, &buf}
-			c.Request.Body = newBody
-			c.Next()
-			log.Println(buf.String())
-		} else {
-			c.Next()
-		}
-	}
+	return gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+
+		// your custom format
+		return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
+			param.ClientIP,
+			param.TimeStamp.Format(time.RFC1123),
+			param.Method,
+			param.Path,
+			param.Request.Proto,
+			param.StatusCode,
+			param.Latency,
+			param.Request.UserAgent(),
+			param.ErrorMessage,
+		)
+	})
 }

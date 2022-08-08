@@ -3,8 +3,7 @@ package routes
 import (
 	"clean-architecture-go-fiber/src/app/middlewares"
 
-	"github.com/gin-contrib/sessions"
-	"github.com/gin-contrib/sessions/cookie"
+	"github.com/gin-gonic/contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,10 +14,16 @@ func AddRouter(r *gin.RouterGroup) {
 
 func InitRouter() {
 	app := gin.New()
-	app.Use(middlewares.LoggingMiddleware())
 
-	store := cookie.NewStore([]byte("secret"))
-	app.Use(sessions.Sessions("mysession", store))
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true
+	app.Use(cors.New(corsConfig))
+
+	app.Use(middlewares.LoggingMiddleware())
+	app.Use(gin.Recovery())
+
+	// store := cookie.NewStore([]byte("secret"))
+	// app.Use(sessions.Sessions("mysession", store))
 
 	app.GET("/", func(ctx *gin.Context) {
 		ctx.String(200, "Hello world")

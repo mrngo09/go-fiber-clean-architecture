@@ -1,3 +1,4 @@
+make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'c:/Users/ADMIN/golang/clean-architecture-go-fiber'
 nodemon --exec go run .\src\app\main.go --ext go
 make: Leaving directory 'c:/Users/ADMIN/golang/clean-architecture-go-fiber'

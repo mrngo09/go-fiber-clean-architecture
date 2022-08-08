@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 08 17:23:23 2022
+# Make data base, printed on Mon Aug 08 17:55:49 2022
 
 # Variables
 
@@ -227,7 +227,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1659954203): 11 files, no impossibilities.
+# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1659954651): 11 files, no impossibilities.
 
 # 11 files, no impossibilities in 1 directories.
 
@@ -237,10 +237,17 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Files
 
+build-production:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	go build .\src\app\main.go
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-08 17:08:57
+#  Last modified 2022-08-08 17:55:44
 #  File has been updated.
 #  Successfully updated.
 
@@ -265,19 +272,20 @@ server-start:
 	nodemon --exec go run .\src\app\main.go --ext go
 
 # files hash-table stats:
-# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/16=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 15 / storage = 204 B / avg = 13 B
-# current buf: size = 8174 B / used = 204 B / count = 15 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 154 B / avg = 9 B
+# c 
+urrent buf: size = 8174 B / used = 154 B / count = 16 / avg = 9 B
 
-# strcache performance: lookups = 20 / hit rate = 25%
+# strcache performance: lookups = 22 / hit rate = 27%
 # hash-table stats:
-# Load=15/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Mon Aug 08 17:23:23 2022
+# Load=16/8192=0%, Rehash=0, Collisions=0/22=0%
+# Finished Make data base on Mon Aug 08 17:55:49 2022
 
  
