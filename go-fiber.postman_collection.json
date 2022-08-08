@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "2e5c1507-73f0-4188-b17b-07d5106bc59f",
+		"name": "go-fiber",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22512800"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "oauth2",
+					"item": [
+						{
+							"name": "google",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localhost}}/v1/oauth/google",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"oauth",
+										"google"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/v1/accounts",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get An Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/v1/accounts/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"employee.loinv@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/v1/accounts",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin.loinv@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"firstname\": \"Loi\",\r\n    \"lastname\": \"Ngo Van\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/v1/account/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/v1/account/:id",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin.loinv@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"rememberClient\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/v1/accounts/login",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
