@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 08 17:55:49 2022
+# Make data base, printed on Tue Aug 09 14:37:10 2022
 
 # Variables
 
@@ -43,7 +43,7 @@ GOPATH = C:\Users\ADMIN\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_62820_JOCUVEBDDZFAEEKA
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6036_AMBTDKCUPDXVVPNW
 # environment
 FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
@@ -93,7 +93,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 62820
+VSCODE_PID = 6036
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -127,7 +127,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\PostgreSQL\13\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Memurai\;C:\Program Files\Go\bin;C:\tools\php81;C:\tools\php74;C:\ProgramData\ComposerSetup\bin;C:\Users\ADMIN\AppData\Local\Microsoft\WindowsApps;C:\Users\ADMIN\AppData\Roaming\npm;C:\Program Files\JetBrains\DataGrip 2022.2.1\bin;C:\Users\ADMIN\go\bin;C:\Program Files\Java\jdk1.8.0_45\bin;C:\Users\ADMIN\AppData\Roaming\Composer\vendor\bin;C:\tools\mysql\current\bin
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\PostgreSQL\13\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Memurai\;C:\tools\php81;C:\tools\php74;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Go\bin;C:\Users\ADMIN\AppData\Local\Microsoft\WindowsApps;C:\Users\ADMIN\AppData\Roaming\npm;C:\Program Files\JetBrains\DataGrip 2022.2.1\bin;C:\Program Files\Java\jdk1.8.0_45\bin;C:\Users\ADMIN\AppData\Roaming\Composer\vendor\bin;C:\tools\mysql\current\bin;C:\Users\ADMIN\go\bin
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -141,7 +141,7 @@ PROMPT = $P$G
 # environment
 CHOCOLATEYLASTPATHUPDATE = 133039817544004848
 # environment
-WT_SESSION = e6c66aa1-c214-4221-8722-a5e6d15a6f24
+WT_SESSION = be84d0ef-72df-4be0-8dbc-93234fc5c419
 # environment
 LOGONSERVER = \\DESKTOP-NIV32F7
 # environment
@@ -187,6 +187,8 @@ NVM_SYMLINK = C:\Program Files\nodejs
 # environment
 PROCESSOR_ARCHITECTURE = x86
 # environment
+GOMODCACHE = C:\Users\ADMIN\go\pkg\mod
+# environment
 DATAGRIP = C:\Program Files\JetBrains\DataGrip 2022.2.1\bin;
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
@@ -198,6 +200,8 @@ ELECTRON_RUN_AS_NODE = 1
 TEMP = C:\Users\ADMIN\AppData\Local\Temp
 # environment
 VSCODE_IPC_HOOK = \\.\pipe\f064d9ba3e130212370d733ca8e40496-1.69.2-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -219,7 +223,7 @@ CHOCOLATEYTOOLSLOCATION = C:\tools
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 # variable set hash-table stats:
-# Load=103/1024=10%, Rehash=0, Collisions=10/130=8%
+# Load=105/1024=10%, Rehash=0, Collisions=10/132=8%
 
 # Pattern-specific Variable Values
 
@@ -227,9 +231,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1659954651): 11 files, no impossibilities.
+# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1659957400): 13 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -237,19 +241,19 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Files
 
-build-production:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 4):
-	go build .\src\app\main.go
-
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-08 17:55:44
+#  Last modified 2022-08-08 18:05:18
 #  File has been updated.
 #  Successfully updated.
+
+run-prod:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 6):
+	.\main.exe
 
 # Not a target:
 .DEFAULT:
@@ -257,12 +261,20 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
+# Not a t 
+arget:
 all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
+
+build-prod:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	go build .\src\app\main.go  
 
 server-start:
 #  Implicit rule search has not been done.
@@ -272,20 +284,19 @@ server-start:
 	nodemon --exec go run .\src\app\main.go --ext go
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/16=0%
+# Load=7/1024=1%, Rehash=0, Collisions=0/17=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 154 B / avg = 9 B
-# c 
-urrent buf: size = 8174 B / used = 154 B / count = 16 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 199 B / avg = 10 B
+# current buf: size = 8174 B / used = 199 B / count = 19 / avg = 10 B
 
-# strcache performance: lookups = 22 / hit rate = 27%
+# strcache performance: lookups = 26 / hit rate = 26%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Mon Aug 08 17:55:49 2022
+# Load=19/8192=0%, Rehash=0, Collisions=0/26=0%
+# Finished Make data base on Tue Aug 09 14:37:10 2022
 
  

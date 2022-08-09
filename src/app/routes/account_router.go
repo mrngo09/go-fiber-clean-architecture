@@ -2,7 +2,7 @@ package routes
 
 import (
 	accounttrpt "clean-architecture-go-fiber/src/module/account/transport"
-	database "clean-architecture-go-fiber/src/platform/database/mysql"
+	database "clean-architecture-go-fiber/src/platform/driver/mysql"
 
 	"github.com/gin-gonic/gin"
 )
