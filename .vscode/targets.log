@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 09 14:37:10 2022
+# Make data base, printed on Tue Aug 09 15:12:32 2022
 
 # Variables
 
@@ -231,9 +231,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1659957400): 13 files, no impossibilities.
+# . (key c:/Users/ADMIN/golang/clean-architecture-go-fiber, mtime 1660030633): 12 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -291,12 +291,12 @@ server-start:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 19 / storage = 199 B / avg = 10 B
-# current buf: size = 8174 B / used = 199 B / count = 19 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 190 B / avg = 10 B
+# current buf: size = 8174 B / used = 190 B / count = 18 / avg = 10 B
 
-# strcache performance: lookups = 26 / hit rate = 26%
+# strcache performance: lookups = 25 / hit rate = 28%
 # hash-table stats:
-# Load=19/8192=0%, Rehash=0, Collisions=0/26=0%
-# Finished Make data base on Tue Aug 09 14:37:10 2022
+# Load=18/8192=0%, Rehash=0, Collisions=0/25=0%
+# Finished Make data base on Tue Aug 09 15:12:32 2022
 
  

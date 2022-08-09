@@ -1,6 +1,15 @@
 package accountmodel
 
-import "time"
+import (
+	"errors"
+	"time"
+)
+
+var (
+	ErrPasswordCannotBeBlank       = errors.New("Account can not be blank")
+	ErrAccountNotFound             = errors.New("Account not found")
+	ErrCannotUpdateFinishedAccount = errors.New("Can not update finished account")
+)
 
 type Account struct {
 	Id        int        `json:"id" gorm:"column:id;"`
