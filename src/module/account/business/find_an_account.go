@@ -1,4 +1,4 @@
-package accountbusiness
+package accountbiz
 
 import (
 	accountmodel "clean-architecture-go-fiber/src/module/account/model"

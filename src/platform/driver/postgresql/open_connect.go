@@ -7,13 +7,13 @@ import (
 	_ "github.com/lib/pq"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 type PostgresDB struct {
 	SQL *gorm.DB
 }
 
-// postgresql://postgres:root@localhost:5432/
 var Postgres = &PostgresDB{}
 
 func ConnectToPostgreSQL() *PostgresDB {
@@ -28,10 +28,19 @@ func ConnectToPostgreSQL() *PostgresDB {
 	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db.Logger.LogMode(logger.Info)
 
 	if err != nil {
-		log.Fatalln("Cannot connect to MySQL:", err)
+		log.Fatalln("Cannot connect to Postgresql:", err)
 	}
 	Postgres.SQL = db
 	return Postgres
+}
+
+func CloseDatabaseConnection(db *gorm.DB) {
+	dbSQL, err := db.DB()
+	if err != nil {
+		panic("Failed to close connection from database")
+	}
+	dbSQL.Close()
 }

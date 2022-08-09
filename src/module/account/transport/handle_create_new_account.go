@@ -1,7 +1,7 @@
 package accounttrpt
 
 import (
-	accountbusiness "clean-architecture-go-fiber/src/module/account/business"
+	accountbiz "clean-architecture-go-fiber/src/module/account/business"
 	accountmodel "clean-architecture-go-fiber/src/module/account/model"
 	accountstorage "clean-architecture-go-fiber/src/module/account/storage"
 
@@ -24,7 +24,7 @@ func HandleCreateAccount(db *gorm.DB) gin.HandlerFunc {
 		dataAccount.Email = strings.TrimSpace(dataAccount.Email)
 
 		storage := accountstorage.NewMySQLStorage(db)
-		business := accountbusiness.NewCreateAccountBusiness(storage)
+		business := accountbiz.NewCreateaccountbiz(storage)
 
 		if err := business.CreateNewAccount(ctx.Request.Context(), &dataAccount); err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

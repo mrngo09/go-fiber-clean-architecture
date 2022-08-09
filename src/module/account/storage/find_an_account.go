@@ -12,6 +12,7 @@ func (s *mysqlStorage) FindAccount(
 	condition map[string]interface{},
 ) (*accountmodel.Account, error) {
 	var accountData accountmodel.Account
+
 	if err := s.db.Where(condition).First(&accountData).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, accountmodel.ErrAccountNotFound

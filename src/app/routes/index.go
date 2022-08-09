@@ -2,10 +2,6 @@ package routes
 
 import (
 	"clean-architecture-go-fiber/src/app/middlewares"
-	accountmodel "clean-architecture-go-fiber/src/module/account/model"
-	driver "clean-architecture-go-fiber/src/platform/driver/postgresql"
-	"fmt"
-	"log"
 
 	"github.com/gin-gonic/contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -18,14 +14,6 @@ func AddRouter(r *gin.RouterGroup) {
 
 func InitRouter() {
 	app := gin.New()
-
-	db := driver.ConnectToPostgreSQL()
-	if err != nil {
-		log.Fatalln("Cannot connect to MySQL:", err)
-	}
-	db.SQL.AutoMigrate(&accountmodel.Account{})
-
-	fmt.Println("Opened connection to Postgresql")
 
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true

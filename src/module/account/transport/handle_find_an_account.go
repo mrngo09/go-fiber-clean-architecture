@@ -1,7 +1,7 @@
 package accounttrpt
 
 import (
-	accountbusiness "clean-architecture-go-fiber/src/module/account/business"
+	accountbiz "clean-architecture-go-fiber/src/module/account/business"
 	accountstorage "clean-architecture-go-fiber/src/module/account/storage"
 	"net/http"
 	"strconv"
@@ -22,7 +22,7 @@ func HandlerFindAnAccount(db *gorm.DB) gin.HandlerFunc {
 		}
 
 		storage := accountstorage.NewMySQLStorage(db)
-		biz := accountbusiness.NewFindAccountBiz(storage)
+		biz := accountbiz.NewFindAccountBiz(storage)
 		data, err := biz.FindAnAccount(ctx.Request.Context(), map[string]interface{}{"id": id})
 
 		if err != nil {

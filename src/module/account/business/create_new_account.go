@@ -1,4 +1,4 @@
-package accountbusiness
+package accountbiz
 
 import (
 	accountmodel "clean-architecture-go-fiber/src/module/account/model"
@@ -14,7 +14,7 @@ type createBusiness struct {
 	store CreateAccountStorage
 }
 
-func NewCreateAccountBusiness(store CreateAccountStorage) *createBusiness {
+func NewCreateaccountbiz(store CreateAccountStorage) *createBusiness {
 	return &createBusiness{store: store}
 }
 
