@@ -1,6 +1,7 @@
 package driver
 
 import (
+	accountmodel "clean-architecture-go-fiber/src/module/account/model"
 	"fmt"
 	"log"
 
@@ -22,12 +23,13 @@ func ConnectToPostgreSQL() *PostgresDB {
 		host     = "localhost"
 		port     = "5432"
 		user     = "postgres"
-		password = ""
+		password = "pass"
 		dbname   = "repo-go-gin"
 	)
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, user, password, dbname, port)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db.AutoMigrate(&accountmodel.Account{})
 	db.Logger.LogMode(logger.Info)
 
 	if err != nil {
