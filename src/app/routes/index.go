@@ -2,18 +2,21 @@ package routes
 
 import (
 	"clean-architecture-go-fiber/src/app/middlewares"
+	component "clean-architecture-go-fiber/src/components"
 
 	"github.com/gin-gonic/contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
-func AddRouter(r *gin.RouterGroup) {
-	accountRoutes(r)
+func AddRouter(r *gin.RouterGroup, appCtx component.AppContext) {
+	accountRoutes(r, appCtx)
 	authRoutes(r)
 }
 
 func InitRouter() {
 	app := gin.New()
+
+	appCtx := SetupAppContext()
 
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
@@ -31,7 +34,7 @@ func InitRouter() {
 
 	router := app.Group("/api/v1")
 	{
-		AddRouter(router)
+		AddRouter(router, appCtx)
 	}
 
 	app.Run(":8080")

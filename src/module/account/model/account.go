@@ -1,6 +1,7 @@
 package accountmodel
 
 import (
+	"clean-architecture-go-fiber/src/components/tokenprovider"
 	"errors"
 	"time"
 )
@@ -22,6 +23,25 @@ type Account struct {
 
 func (Account) TableName() string {
 	return "accounts"
+}
+
+type UserLogin struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
+
+type CurrentProfile struct {
+	AccessToken  string               `json:"access_token"`
+	RefreshToken *tokenprovider.Token `json:"-"`
+	Profile      *Account             `json:"profile"`
+}
+
+func UserLogined(at string, rt *tokenprovider.Token, profile *Account) *CurrentProfile {
+	return &CurrentProfile{
+		AccessToken:  at,
+		RefreshToken: rt,
+		Profile:      profile,
+	}
 }
 
 type DataPaging struct {
