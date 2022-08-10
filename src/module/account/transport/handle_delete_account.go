@@ -10,11 +10,9 @@ import (
 	"gorm.io/gorm"
 )
 
-func HandlerFindAnAccount(db *gorm.DB) gin.HandlerFunc {
+func HandleDeleteAccount(db *gorm.DB) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-
 		id, err := strconv.Atoi(ctx.Param("id"))
-
 		if err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{
 				"error": err.Error(),
@@ -22,15 +20,11 @@ func HandlerFindAnAccount(db *gorm.DB) gin.HandlerFunc {
 		}
 
 		storage := accountstorage.NewPostgresStorage(db)
-		biz := accountbiz.NewFindAccountBiz(storage)
-		data, err := biz.FindAnAccount(ctx.Request.Context(), map[string]interface{}{"id": id})
-
-		if err != nil {
+		biz := accountbiz.NewDeleteAccountBiz(storage)
+		if err := biz.DeleteAccount(ctx.Request.Context(), map[string]interface{}{"id": id}); err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-
-		ctx.JSON(http.StatusOK, gin.H{"data": data})
-
+		ctx.JSON(http.StatusOK, gin.H{"status": "success"})
 	}
 }

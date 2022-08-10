@@ -14,7 +14,7 @@ type createBusiness struct {
 	store CreateAccountStorage
 }
 
-func NewCreateaccountbiz(store CreateAccountStorage) *createBusiness {
+func NewCreateAccountbiz(store CreateAccountStorage) *createBusiness {
 	return &createBusiness{store: store}
 }
 

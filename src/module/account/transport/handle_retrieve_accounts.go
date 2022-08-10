@@ -23,7 +23,7 @@ func HandleRetrieveAccounts(db *gorm.DB) gin.HandlerFunc {
 
 		pagging.Process()
 
-		store := accountstorage.NewMySQLStorage(db)
+		store := accountstorage.NewPostgresStorage(db)
 		biz := accountbiz.NewRetrieveAccountsBiz(store)
 
 		data, err := biz.RetrieveAccounts(ctx.Request.Context(), nil, &pagging)

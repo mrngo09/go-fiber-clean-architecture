@@ -5,11 +5,12 @@ import (
 	"context"
 )
 
-func (s *psqlStorage) DeleteAccount(
+func (s *psqlStorage) UpdateAccount(
 	ctx context.Context,
 	condition map[string]interface{},
+	dataUpdate *accountmodel.Account,
 ) error {
-	if err := s.db.Table(accountmodel.Account{}.TableName()).Where(condition).Delete(nil).Error; err != nil {
+	if err := s.db.Where(condition).Updates(dataUpdate).Error; err != nil {
 		return err
 	}
 	return nil

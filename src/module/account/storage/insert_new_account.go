@@ -5,7 +5,7 @@ import (
 	"context"
 )
 
-func (s *mysqlStorage) CreateAccount(ctx context.Context, data *accountmodel.Account) error {
+func (s *psqlStorage) CreateAccount(ctx context.Context, data *accountmodel.Account) error {
 	if err := s.db.Create(data).Error; err != nil {
 		return err
 	}

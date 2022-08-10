@@ -5,7 +5,7 @@ import (
 	"context"
 )
 
-func (s *mysqlStorage) RetrieveAccount(
+func (s *psqlStorage) RetrieveAccount(
 	ctx context.Context,
 	condition map[string]interface{},
 	pagging *accountmodel.DataPaging,

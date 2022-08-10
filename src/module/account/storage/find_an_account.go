@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func (s *mysqlStorage) FindAccount(
+func (s *psqlStorage) FindAccount(
 	ctx context.Context,
 	condition map[string]interface{},
 ) (*accountmodel.Account, error) {

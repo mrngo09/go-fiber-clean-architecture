@@ -4,34 +4,36 @@ import (
 	accountbiz "clean-architecture-go-fiber/src/module/account/business"
 	accountmodel "clean-architecture-go-fiber/src/module/account/model"
 	accountstorage "clean-architecture-go-fiber/src/module/account/storage"
-
 	"net/http"
-	"strings"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
-func HandleCreateAccount(db *gorm.DB) gin.HandlerFunc {
+func HandleUpdateAccount(db *gorm.DB) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		var dataAccount accountmodel.Account
+		var id, err = strconv.Atoi(ctx.Param("id"))
 
-		if err := ctx.ShouldBind(&dataAccount); err != nil {
+		if err != nil {
+			ctx.JSON(http.StatusBadRequest, gin.H{
+				"error": err.Error(),
+			})
+		}
+
+		var dataUpdate accountmodel.Account
+		if err := ctx.ShouldBind(&dataUpdate); err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-
-		dataAccount.Email = strings.TrimSpace(dataAccount.Email)
 
 		storage := accountstorage.NewPostgresStorage(db)
-		business := accountbiz.NewCreateAccountbiz(storage)
+		biz := accountbiz.NewUpdateAccountBiz(storage)
 
-		if err := business.CreateNewAccount(ctx.Request.Context(), &dataAccount); err != nil {
+		if err := biz.UpdateAccount(ctx.Request.Context(), map[string]interface{}{"id": id}, &dataUpdate); err != nil {
 			ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-
-		ctx.JSON(http.StatusOK, gin.H{"data": dataAccount.Id})
-
+		ctx.JSON(http.StatusOK, gin.H{"data": true})
 	}
 }
