@@ -26,7 +26,7 @@ func (biz *updateBiz) UpdateAccount(
 	condition map[string]interface{},
 	dataUpdate *accountmodel.Account,
 ) error {
-	err := biz.UpdateAccount(c, condition, dataUpdate)
+	err := biz.store.UpdateAccount(c, condition, dataUpdate)
 
 	if err != nil {
 		return err
