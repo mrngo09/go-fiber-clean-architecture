@@ -20,12 +20,12 @@ func accountRoutes(superRoute *gin.RouterGroup, appCtx component.AppContext) {
 	accountRouter := superRoute.Group("/accounts")
 	{
 		accountRouter.POST("/login", accounttrpt.HandleLoginWithEmail(db.SQL, appCtx))
-		accountRouter.POST("/", accounttrpt.HandleCreateAccount(db.SQL))
+		accountRouter.POST("/", middlewares.RequireAuth(appCtx), accounttrpt.HandleCreateAccount(db.SQL))
 
-		accountRouter.GET("/:id", accounttrpt.HandlerFindAnAccount(db.SQL))
+		accountRouter.GET("/:id", middlewares.RequireAuth(appCtx), accounttrpt.HandlerFindAnAccount(db.SQL))
 		accountRouter.GET("/", middlewares.RequireAuth(appCtx), accounttrpt.HandleRetrieveAccounts(db.SQL))
 
-		accountRouter.PATCH("/:id", accounttrpt.HandleUpdateAccount(db.SQL))
-		accountRouter.DELETE("/:id", accounttrpt.HandleDeleteAccount(db.SQL))
+		accountRouter.PATCH("/:id", middlewares.RequireAuth(appCtx), accounttrpt.HandleUpdateAccount(db.SQL))
+		accountRouter.DELETE("/:id", middlewares.RequireAuth(appCtx), accounttrpt.HandleDeleteAccount(db.SQL))
 	}
 }
